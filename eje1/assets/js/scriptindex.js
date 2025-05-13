@@ -1,3 +1,4 @@
+let personas = []
 function validar(){
     let eNombre = document.getElementById("nombre")
     let vNombre = eNombre.value 
@@ -14,6 +15,13 @@ function validar(){
         eErrorNombre.innerText=""
         eNombre.style.backgroundColor = "green"
         eNombre.style.color = "white"
+        let p = {
+            nombre : vNombre
+        }
+        personas.push(p)
+        eNombre.value = ""
+        console.log(personas)
+        cargarDatos()
     }else{
         console.log("no cumple")
         alert("debes ingresar mas de 3 caracteres")
@@ -26,6 +34,13 @@ function validar(){
         eErrorApellido.innerText = ""
         eApellido.style.backgroundColor="blue"
         eApellido.style.color="white"
+        let p = {
+            apellido : vApellido
+        }
+        personas.push(p)
+        eApellido.value = ""
+        console.log(personas)
+        cargarDatos()
     }else{
         console.log("no cumple")
         alert("debe ingresar mas de 5 caracteres tomto")
@@ -33,4 +48,23 @@ function validar(){
         eApellido.style.backgroundColor="black"
         eApellido.style.color ="white"
     }
+}
+
+function cargarDatos(){
+    let eCuerpoTabla = document.getElementById("cuerpoTabla")
+    let personasMap = personas.map((p)=>{
+        return "<tr><td>"+p.nombre+"<tr><td>"
+    })
+    let personasmap = personas.map((p)=>{
+        return "<tr><td>"+p.apellido+"<tr><td>"
+    })
+    console.log("mapeandooo")
+    console.log(personasMap)
+    let personasStr = personasMap.join("")
+    let personasStri = personasmap.join("")
+    console.log("joineandoooo")
+    console.log(personasStr)
+    eCuerpoTabla.innerHTML= personasStr
+    eCuerpoTabla.innerHTML= personasmap
+
 }
