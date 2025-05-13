@@ -15,13 +15,7 @@ function validar(){
         eErrorNombre.innerText=""
         eNombre.style.backgroundColor = "green"
         eNombre.style.color = "white"
-        let p = {
-            nombre : vNombre
-        }
-        personas.push(p)
-        eNombre.value = ""
-        console.log(personas)
-        cargarDatos()
+        
     }else{
         console.log("no cumple")
         alert("debes ingresar mas de 3 caracteres")
@@ -35,6 +29,7 @@ function validar(){
         eApellido.style.backgroundColor="blue"
         eApellido.style.color="white"
         let p = {
+            nombre : vNombre,
             apellido : vApellido
         }
         personas.push(p)
@@ -53,18 +48,12 @@ function validar(){
 function cargarDatos(){
     let eCuerpoTabla = document.getElementById("cuerpoTabla")
     let personasMap = personas.map((p)=>{
-        return "<tr><td>"+p.nombre+"<tr><td>"
-    })
-    let personasmap = personas.map((p)=>{
-        return "<tr><td>"+p.apellido+"<tr><td>"
+        return "<tr><td>"+p.nombre+p.apellido+"<tr><td>"
     })
     console.log("mapeandooo")
     console.log(personasMap)
     let personasStr = personasMap.join("")
-    let personasStri = personasmap.join("")
     console.log("joineandoooo")
     console.log(personasStr)
     eCuerpoTabla.innerHTML= personasStr
-    eCuerpoTabla.innerHTML= personasmap
-
 }
