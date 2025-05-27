@@ -54,14 +54,9 @@ function cargarDatos() {
             <tr>
                 <td>${p.nombre}</td>
                 <td>${p.apellido}</td>
-                <td><button onclick="eliminarPersona(${index})">Eliminar</button></td>
             </tr>
         `
         eCuerpoTabla.innerHTML += fila
     })
 }
 
-function eliminarPersona(index) {
-    personas.splice(index, 1)
-    cargarDatos()
-}
